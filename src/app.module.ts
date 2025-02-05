@@ -5,6 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user';
 import { Comment } from './entities/comment';
 import { Post } from './entities/post';
+import { PostController } from './controllers/post.controller';
+import { PostService } from './services/post.service';
+import { UserService } from './services/user.service';
+import { CommentService } from './services/comment.service';
+import { UserController } from './controllers/user.controller';
+import { CommentController } from './controllers/comment.controller';
 
 @Module({
   imports: [
@@ -23,7 +29,7 @@ import { Post } from './entities/post';
       synchronize: true,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PostController, UserController, CommentController],
+  providers: [AppService, PostService, UserService, CommentService],
 })
 export class AppModule {}
